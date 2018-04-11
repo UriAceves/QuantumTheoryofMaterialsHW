@@ -4,11 +4,19 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{cancel}
+\usepackage{xcolor}
 \usepackage[utf8]{inputenc}
- \usepackage[english,german]{babel} 
+ \usepackage[english,german]{babel}
 \renewcommand{\qedsymbol}{$\blacksquare$}
 \renewcommand{\questionlabel}{\alph{question}.}
-
+\newcommand{\highlight}[1]{%
+  \colorbox{red!50}{$\displaystyle#1$}}
+  \newcommand{\hlgreen}[1]{%
+    \colorbox{green!50}{$\displaystyle#1$}}
+    
 \pagestyle{headandfoot}
 \runningheadrule
 \firstpageheader{Uriel A. Aceves R.}{Quantum Theory of Materials}{Homework 1}
