@@ -3,12 +3,104 @@
   Solve Schrödinger Equation}
 
 \begin{solution}
-  d
+  In this exercise we are going to solve the Schrödinger equation $\hat{H}\psi = E \psi$ for the hydrogen atom. We will consider a hydrogen atom with $Z$ protons, therefore the potential $V$ is described by
+  \begin{equation}
+    V(r) = -\frac{Ze^2}{4\pi \epsilon_0 r},
+    \label{hy:v}
+  \end{equation}
+  We are solving this equation for two bodies, so we need to change the reference system in such a way that our equation accurately represent the system. To solve this predicament we define the reduced mass
+  \begin{equation}
+    \mu = \frac{mM}{m+M},
+    \label{red:mass}
+  \end{equation}
+  where M is the mass of the nucleus, and m the mass of the electron.
+
+  Hence, our Hamiltonian will be
+  \begin{equation}
+    \hat{H} = -\frac{\hbar^2}{2\mu}\nabla^2 - \frac{Ze^2}{4\pi\epsilon_0r}
+  \end{equation}
+  And at this point we find ourselves in a tight spot, because we usually use cartesian representation of the laplacian operator. We can decide to use the cartesian representation of the potential depicted in eq. \ref{hy:v}, or use the spherical representation of the laplacian. The latter is usually taken, because it offers certain advantages. For example, spherical coordinates accurately represent one of the symmetries of our problem, and therefore the solutions obtained in spherical coordinates are easier to understand an analyze in comparison with solutions viewed in cartesian coordinates. If we take then the spherical representation of the laplacian, Schrödinger equation for the hydrogen atom becomes
+  \begin{equation*}
+    -\frac{\hbar^2}{2\mu} \left[ \frac{1}{r^2} \frac{\partial}{\partial r} \left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2 \sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial \psi}{\partial \theta}\right) + \frac{1}{r^2\sin^2{\theta}}\frac{\partial^2 \psi}{\partial \phi^2}\right] - \frac{Ze^2}{4\pi\epsilon_0r} \psi = E\psi.
+  \end{equation*}
+  Both sides have $\psi$, so we can simplify the equation further
+  \begin{equation}
+    \frac{1}{r^2} \frac{\partial}{\partial r} \left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2 \sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial \psi}{\partial \theta}\right) + \frac{1}{r^2\sin^2{\theta}}\frac{\partial^2 \psi}{\partial \phi^2} + \frac{2\mu}{\hbar^2}\left(E + \frac{Ze^2}{4\pi\epsilon_0r} \right)\psi = 0.
+    \label{sch:hy}
+  \end{equation}
+  As we know the wavefunction $\psi$ might depend on 3 variables namely $r,\theta,\phi$. So we can propose a solution which is product of radial, and angular functions.
+  \begin{equation*}
+    \psi(r,\theta,\phi) = R(r)Y(\theta,\phi).
+  \end{equation*}
+  As a result of this assumption we now know that the radial derivatives don't affect the radial part, and the angular derivatives don't affect the angular part, hence eq. \ref{sch:hy} changes once again to
+  \begin{equation*}
+    \frac{Y}{r^2} \frac{d}{d r} \left(r^2\frac{d R}{d r}\right) + \frac{R}{r^2 \sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial Y}{\partial \theta}\right) + \frac{R}{r^2\sin^2{\theta}}\frac{\partial^2 Y}{\partial \phi^2} + \frac{2\mu}{\hbar^2}\left(E + \frac{Ze^2}{4\pi\epsilon_0r} \right)RY = 0.
+  \end{equation*}
+  Multiplying by $r^2$ and dividing by $RY$, we attain this equation
+  \begin{equation}
+    \hlyellow{\frac{1}{R} \frac{d}{d r} \left(r^2\frac{d R}{d r}\right)} + \hlblue{\frac{1}{Y \sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial Y}{\partial \theta}\right) + \frac{1}{Y\sin^2{\theta}}\frac{\partial^2 Y}{\partial \phi^2}} + \hlyellow{\frac{2\mu r^2}{\hbar^2}\left(E + \frac{Ze^2}{4\pi\epsilon_0r} \right)} = 0.
+    \label{sep:hy}
+  \end{equation}
+  Now we note that we have in fact two idependent equations inside eq. \ref{sep:hy}, one part depending only on the angular variables, and the other one exclusively depending on $r$. For this equation to be true both parts must balance each other throughout the space, this happens only when the radial and angular terms are the same constant (we'll call it $A$) but with oposite sing. Therefore we can separate into a radial equation
+  \begin{eqnarray}
+    \frac{1}{R} \frac{d}{d r} \left(r^2\frac{d R}{d r}\right) + \frac{2\mu r^2}{\hbar^2}\left(E + \frac{Ze^2}{4\pi\epsilon_0r} \right)  = A, \nonumber\\
+    \frac{d}{d r} \left(r^2\frac{d R}{d r}\right) + \frac{2\mu r^2}{\hbar^2}\left(E + \frac{Ze^2}{4\pi\epsilon_0r} \right)R - AR  = 0,
+    \label{radial}
+  \end{eqnarray}
+  and an angular equation
+  \begin{eqnarray}
+    \frac{1}{Y \sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial Y}{\partial \theta}\right) + \frac{1}{Y\sin^2{\theta}}\frac{\partial^2 Y}{\partial \phi^2}
+    = - A ,\nonumber \\
+    \frac{1}{ \sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial Y}{\partial \theta}\right) + \frac{1}{\sin^2{\theta}}\frac{\partial^2 Y}{\partial \phi^2} + AY
+    = 0.
+    \label{angular}
+  \end{eqnarray}
+  At this point is important to look at eq. \ref{angular}. If we define
+  \begin{equation*}
+    \nabla^2_{\theta,\phi} = \frac{1}{ \sin{\theta}}\frac{\partial}{\partial \theta}\left(\sin{\theta}\frac{\partial }{\partial \theta}\right) + \frac{1}{\sin^2{\theta}}\frac{\partial^2 }{\partial \phi^2},
+  \end{equation*}
+  we can also write eq. \ref{angular}
+  \begin{eqnarray}
+    \nabla^2_{\theta,\phi} Y  + AY = 0, \nonumber \\
+    \nabla^2_{\theta,\phi} Y = -AY.
+    \label{almostY}
+  \end{eqnarray}
+  Now remebering the definition of the angular momentum operator $\hat{L}$
+  \begin{equation*}
+    \hat{L}^2 = -\hbar^2 \nabla^2_{\theta,\phi},
+  \end{equation*}
+  and its eigenvalues ($\hbar^2 l (l+1)$) and eigenfunctions ($Y_{l,m}(\theta,\phi)$) we can compare the eigenequation for the angular momentum (eq. \ref{L}) and eq. \ref{almostY}
+  \begin{equation}
+    \hat{L}^2 Y_{l,m}(\theta,\phi)= -\hbar^2 \nabla^2_{\theta,\phi} Y_{l,m}(\theta,\phi) = - \hbar^2 l (l+1) Y_{l,m}(\theta,\phi).
+    \label{L}
+  \end{equation}
+  From both equations we can deduce that $A = l(l+1)$, and $Y = Y_{l,m}(\theta,\phi) $, where $Y_{l,m}(\theta,\phi)$ are of course the spherical harmonics.
+
+  Now, we just need to solve the radial equation (eq. \ref{radial}), we can begin by inserting the now known value of $A$, expanding the derivative and dividing by $r^2$.
+  \begin{eqnarray}
+    \frac{d^2R}{dr^2} +\highlight{\frac{2}{r}\frac{dR}{dr}} + \frac{2\mu r^2}{\hbar^2}\left(E + \highlight{\frac{Ze^2}{4\pi\epsilon_0r }} - \highlight{\frac{l(l+1)\hbar^2}{2\mu r^2}} \right)R = 0.
+    \label{rad:mod}
+  \end{eqnarray}
+  The highlighted terms in eq. \ref{rad:mod} go to zero as $r$ goes to infinity, if that's the case the equation to solve is easier
+  \begin{equation}
+    \frac{d^2R_\infty}{dr^2} + \frac{2\mu E}{\hbar^2}R_\infty = 0,
+  \end{equation}
+  whose solution is
+  \begin{equation*}
+    R_\infty(r) = c_1 \exp{\left(i\sqrt{\frac{2\mu E}{\hbar^2} r}\right)} + c_2 \exp{\left(-i\sqrt{\frac{2\mu E}{\hbar^2} r}\right)}.
+  \end{equation*}
+  We look for solutions where $E$ becomes negative as the electron approaches the nucleus, and $E\rightarrow0$ as the electron goes away from it. If we choose $c_2 = 0$ and the fact that $E<0$ the asymptotic solution looks like
+  \begin{equation}
+    R_\infty(r) = c_1 \exp{\left(\sqrt{-\frac{2\mu E}{\hbar^2} r}\right)} .
+  \end{equation}
 \end{solution}
 
 \question{Quantum numbers}
 \begin{solution}
-  d
+  In our solution just 3 quantum numbers are required $(n,l,m)$, but eventually spin effects need to be considered, then the set of quantum numbers necessary to specify one electronic state extends to 4, $(n,l,m,s)$.
+  %Meaning of each one of the quantum numbers
+
+  Whithout external fields the energy state depends only on $n$.
 \end{solution}
 
 \question{Degeneracies}
