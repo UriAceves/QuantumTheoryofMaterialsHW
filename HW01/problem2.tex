@@ -92,19 +92,58 @@
   We look for solutions where $E$ becomes negative as the electron approaches the nucleus, and $E\rightarrow0$ as the electron goes away from it. If we choose $c_2 = 0$ and the fact that $E<0$ the asymptotic solution looks like
   \begin{equation}
     R_\infty(r) = c_1 \exp{\left(\sqrt{-\frac{2\mu E}{\hbar^2} r}\right)} .
+    \label{asym}
+  \end{equation}
+  Closer to the nucleus we can propose a expansion in series, so the radial part looks like
+  \begin{equation}
+    R(r) = R_\infty(r) \sum_{i=0}^\infty b_i r^i.
+  \end{equation}
+  Plugin this into eq. \ref{rad:mod} we find a recurrence relation for the coefficients of the series ($b_i$). And finally we come to the radial solution
+  \begin{equation}
+    R_{n,l}(r) = R_\infty(r) b_0 \exp \left(\frac{\mu Z e^2 r}{2\pi \epsilon_0 \hbar^2 n}\right),
+  \end{equation}
+  the $l$ dependence is hidden in $b_0$.
+
+  While finding the coefficients $b_i$ we notice that they generate a series leading to an exponential term, so, we are required to truncate the series for some value. This truncation leads to the eigenenergies, and when solved, such energies are found to be
+  \begin{equation}
+    E_n = - \frac{\mu Z^2 e^4}{8\epsilon_0^2 \pi^2 \hbar^2 n}
   \end{equation}
 \end{solution}
 
 \question{Quantum numbers}
 \begin{solution}
   In our solution just 3 quantum numbers are required $(n,l,m)$, but eventually spin effects need to be considered, then the set of quantum numbers necessary to specify one electronic state extends to 4, $(n,l,m,s)$.
-  %Meaning of each one of the quantum numbers
+
+  The quantum numbers can be linked to physical properties according to this:
+
+  \begin{enumerate}
+    \item $n$: The principal quantum number designates the principal electron shell.
+    \item $l$: The orbital angular momentum quantum number determines the shape of an orbital, and as a consequence the angular distribution.
+    \item $m$: The magnetic quantum number determines the number of orbitals and their orientation within a subshell.
+    \item $s$: The electron spin quantum number designates the direction of the electron spin.
+  \end{enumerate}
 
   Whithout external fields the energy state depends only on $n$.
 \end{solution}
 
 \question{Degeneracies}
 \begin{solution}
-  d
+
+    All values sharing the same $n$ have the same energy, so let's count how many states are for a given $n$.
+
+  If $n$ is the principal quantum number then $l = 0, 1,\ldots, n-1$, and $m = -l,\ldots, l$. So given $n$ and $l$ there is $(2l+1)$ states, then the total number (without considering spin) is
+  \begin{equation}
+    \sum_{l=0}^{n-1} (2l+1) = n^2.
+  \end{equation}
+  Considering spin, the number of states is doubled.
+
+  To split some degeneracies the following effects are used:
+  \begin{enumerate}
+    \item Zeeman effect - Split with magnetic field
+    \item Stark effect - Split with electric field
+    \item Jahn-Teller effect - Split of electronic levels in a molecule
+    \item Spin-Orbit effect - This split appears as a consequence of the interaction of the orbital and magnetic moments.
+    \item Paschen-Back effect - same principles as Zeeman. 
+  \end{enumerate}
 \end{solution}
 \end{questions}
