@@ -1,0 +1,131 @@
+\begin{questions}
+\question{
+Calculate energies
+}
+\begin{solution}
+The Schrödinger equation for this system reads
+\begin{equation}
+  \hat{H}\ket{\Psi} = E \ket{\Psi},
+  \label{sch:1}
+\end{equation}
+where $\ket{\Psi} = c_1\ket{1} + c_2 \ket{2}$. Now, to obtain the two equations we are looking for we need to compute the products $\braket{1|\hat{H}|\Psi}$ and $\braket{2|\hat{H}|\Psi}$, so let's do that.
+\begin{equation}
+  \begin{aligned}[b]
+    \bra{1}\hat{H}\left( c_1\ket{1} + c_2 \ket{2} \right) &= \bra{1} E \left( c_1\ket{1} + c_2 \ket{2} \right), \\
+    c_1\cancelto{E_0}{\braket{1|\hat{H}|1}} + c_2\cancelto{\beta}{\braket{1|\hat{H}|2}} &= c_1E\cancelto{1}{\braket{1|1}} + c_2E\cancelto{S}{\braket{1|2}}, \\
+    c_1(E_0 - E) + c_2(\beta - ES) &= 0.
+  \end{aligned}
+  \label{sys:1}
+\end{equation}
+The second equation is
+\begin{equation}
+  \begin{aligned}[b]
+    \bra{2}\hat{H}\left( c_1\ket{1} + c_2 \ket{2} \right) &= \bra{2} E \left( c_1\ket{1} + c_2 \ket{2} \right), \\
+    c_1\cancelto{\beta}{\braket{2|\hat{H}|1}} + c_2\cancelto{E_0}{\braket{2|\hat{H}|2}} &= c_1E\cancelto{S}{\braket{2|1}} + c_2E\cancelto{1}{\braket{2|2}}, \\
+    c_1(\beta - ES) + c_2(E_0 - E) &= 0.
+  \end{aligned}
+  \label{sys:2}
+\end{equation}
+Therefore the system composed by eq. \ref{sys:1} and eq. \ref{sys:2} has the following matrix
+\begin{equation}
+  \begin{bmatrix}
+    E_0 - E & \beta - ES \\
+    \beta - ES & E_0 - E
+  \end{bmatrix}
+  \begin{bmatrix}
+    c_1 \\
+    c_2
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    0 \\
+    0
+  \end{bmatrix}.
+  \label{sys:full}
+\end{equation}
+Such system has a non-trivial solution if
+\begin{equation}
+  \begin{vmatrix}
+    E_0 - E & \beta - ES \\
+    \beta - ES & E_0 - E
+  \end{vmatrix} = 0.
+  \label{det}
+\end{equation}
+Then, let's calculate it
+\begin{equation}
+  \begin{aligned}[b]
+  0 &= (E_0 - E)^2 - (\beta-ES)^2,\\
+    &=E_0^2 - 2E_0E + E^2 - (\beta^2 - 2\beta ES + E^2S^2),\\
+    &=E_0^2 - 2E_0E + E^2 - \beta^2 + 2\beta ES - E^2S^2, \\
+    &=E^2(1-S^2) + E(2(\beta S - E_0)) + E_0^2 - \beta^2.
+  \end{aligned}
+  \label{deter}
+\end{equation}
+We can solve eq. \ref{deter} with the quadratic formula or plug it in wolfram alpha and save time. After doing that we will obtain the two solutions
+\begin{eqnarray}
+  \hlgreen{E_- = \frac{E_0-\beta}{1-S},} \label{e-}\\
+  \hlgreen{E_+ = \frac{E_0+\beta}{1+S}.} \label{e+}
+\end{eqnarray}
+If we plug eq. \ref{e+} into eq. \ref{sys:1} and assume $S+1 \neq 0$ we get
+\begin{equation}
+  \begin{aligned}[b]
+    0 &= c_1\left(E_0 - \frac{E_0+\beta}{S+1}\right) + c_2\left(\beta - \frac{E_0+\beta}{S+1}S\right) \\
+    &=c_1(E_0(S+1) - (E_0+\beta)) + c_2(\beta(S+1) - (E_0+\beta)S),\\
+    &=c_1(E_0S+\cancel{E_0} - \cancel{E_0}-\beta)) + c_2(\cancel{\beta S}+\beta - E_0S-\cancel{\beta S}),\\
+    &=c_1(E_0S-\beta)) + c_2(\beta - E_0S), \\
+    &=c_1(E_0S-\beta)) - c_2(-\beta + E_0S), \\
+    &= (c_1 - c_2)(E_0S-\beta).
+    \label{coeffs:1}
+  \end{aligned}
+\end{equation}
+So if $(E_0S-\beta)\neq 0 $ then $c_1 = c_2$ solves eq. \ref{coeffs:1}.
+Now if we use that to normalize $\Psi$ we will find the analytical value
+\begin{equation}
+  \begin{aligned}[b]
+    1 &= \Braket{\Psi|\Psi},\\
+      &= (c_1\bra{1} + c_1\bra{2})(c_1\ket{1}+ c_1\ket{2}),\\
+      &= c_1^2 (\bra{1} + \bra{2})(\ket{1}+ \ket{2}),\\
+      &= c_1^2( \cancelto{1}{\braket{1|1}} +2\cancelto{S}{\braket{1|2}} + \cancelto{1}{\braket{2|2}}),\\
+      &= c_1^22(1+S).
+  \end{aligned}
+\end{equation}
+Therefore
+\begin{equation}
+  c_1 = \frac{1}{\sqrt{2(1+S)}},
+\end{equation}
+when we take $E_+$, and the corresponding wavefunction is
+\begin{equation}
+  \hlgreen{\ket{\Psi_+} = \frac{\ket{1} + \ket{2}}{\sqrt{2(1+S)}}.}
+\end{equation}
+To derive the remaining wavefunction we can insert eq. \ref{e-} into eq. \ref{sys:2}, assuming that $1-S \neq 0$ we can perform this calculations
+\begin{equation}
+  \begin{aligned}[b]
+    0 &= c_1(\beta - \frac{E_0-\beta}{1-S}S) + c_2(E_0 - \frac{E_0-\beta}{1-S}),\\
+    &= c_1(\beta - \cancel{\beta S} - E_0S+\cancel{\beta S}) + c_2(\cancel{E_0} - E_0S - \cancel{E_0}+\beta),\\
+    &= c_1(\beta - E_0S) + c_2( - E_0S+\beta),\\
+    &= (c_1 + c_2)(\beta - E_0S)\label{c-}
+  \end{aligned}
+\end{equation}
+The solution to eq. \ref{c-} if $\beta -E_0S \neq 0$ is $c_2 = -c_1$, we can then again normalize the wavefunction
+\begin{equation}
+  \begin{aligned}[b]
+    1 &= \Braket{\Psi|\Psi},\\
+      &= (c_1\bra{1} - c_1\bra{2})(c_1\ket{1}- c_1\ket{2}),\\
+      &= c_1^2 (\bra{1} - \bra{2})(\ket{1}- \ket{2}),\\
+      &= c_1^2( \cancelto{1}{\braket{1|1}} -2\cancelto{S}{\braket{1|2}} + \cancelto{1}{\braket{2|2}}),\\
+      &= c_1^22(1-S).
+  \end{aligned}
+\end{equation}
+Then
+\begin{equation}
+  c_1 = \frac{1}{\sqrt{2(1-S)}},
+\end{equation}
+and we can finally write the normalized wavefunction
+\begin{equation}
+  \hlgreen{\ket{\Psi_-} = \frac{\ket{1} + \ket{2}}{\sqrt{2(1-S)}}.}
+\end{equation}
+To determine which one corresponds to the bonding and which one to the antibonding we need to remember that $\beta<0$ and $S$ is usually small hence we have $E_+<E_-$, so \textbf{the bonding state corresponds to $\ket{\Psi_+}$ and the antibonding to $\ket{\Psi_-}$.}
+
+Compared to the solution obtained in class condidering the overlap to be zero, we get an additional $1+S$ or $1-S$ factor on the energies, as well as in the normalization.
+\end{solution}
+\end{questions}
