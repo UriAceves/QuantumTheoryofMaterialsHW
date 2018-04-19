@@ -67,12 +67,49 @@ The solution to eq. \ref{quad} is
     &= \frac{E_B + E_A \pm \sqrt{E_A^2 + E_B^2 + 2E_AE_B - 4E_AE_B + 4\beta^2)}}{2},\\
     &= \frac{E_B + E_A \pm \sqrt{(E_A - E_B)^2 + 4\beta^2)}}{2},\\
     &= \frac{E_B + E_A}{2}\pm \sqrt{\left(\frac{E_A - E_B}{2}\right)^2 + \beta^2},\\
-    &= \frac{E_B + E_A}{2}\pm \sqrt{\Delta^2 + \beta^2},
+    &= \hlgreen{\frac{E_B + E_A}{2}\pm \sqrt{\Delta^2 + \beta^2},}
   \end{aligned}
 \end{equation}
 where in the last term we used
 \begin{equation}
   \Delta = \frac{E_A - E_B}{2}.
 \end{equation}
+
+Now that we know this, obtaining the coefficients is really easy. Let's take for example eq. \ref{2:sys:1} and isolate $c_B$
+\begin{equation}
+  \begin{aligned}[b]
+    c_A(E_A - E) + c_B\beta = 0,\\
+    \Rightarrow \hlgreen{c_B = -\frac{c_A (E_A - E)}{\beta}.}
+  \end{aligned}
+\end{equation}
+Now we must remember that the normalization on this case when $\braket{A|B} = 0$ imposes $c_A^2 + c_B^2 = 1$, hence
+\begin{equation}
+  \begin{aligned}[b]
+    1 &= c_A^2 + c_B^2 ,\\
+    &=c_A^2 + c_A^2\left( \frac{E_A - E}{\beta}\right)^2,\\
+    &= c_A^2 \left(1+\left( \frac{E_A - E}{\beta}\right)^2\right).\\
+    \Rightarrow \hlgreen{c_A} &\hlgreen{= \frac{1}{\sqrt{1+\left( \frac{E_A - E}{\beta}\right)^2}}.}
+  \end{aligned}
+\end{equation}
+Now we just need to plug the energy of the bonding state ($E_-$) or the anti-bonding state ($E_+$), in order to get the coefficients we are looking for.
+
+\includegraphics[width=75mm]{anti-1-mal.png}
+\includegraphics[width=75mm]{anti-10-mal.png}
+
+\hspace{3.6cm}a)\hspace{7.5cm}b)
+
+\includegraphics[width=75mm]{anti-1000-mal.png}
+\includegraphics[width=75mm]{bond-1-mal.png}
+
+\hspace{3.6cm}c)\hspace{7.5cm}d)
+
+\includegraphics[width=75mm]{bond-10-mal.png}
+\includegraphics[width=75mm]{bond-1000-mal.png}\label{bondplots}
+
+\hspace{3.6cm}e)\hspace{7.5cm}f)
+
+ \captionof{figure}{$(c_a/c_b)^2$ plotted for the anti-bonding (a,b,c) and the bonding states (d,e,f)}
+
+ As we can see in Fig. \ref{bondplots} ... \textit{to be continued}
 \end{solution}
 \end{questions}
