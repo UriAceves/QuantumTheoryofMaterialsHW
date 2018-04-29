@@ -4,7 +4,7 @@
 Simple Cubic
 }
 \begin{solution}
-Before all this we need to perform a quick calculation to know the radius of the atoms, assuming they are spherical and have a volume equal to $V_atom$,
+Before all this we need to perform a quick calculation to know the radius of the atoms, assuming they are spherical and have a volume equal to $V_{atom}$,
 \begin{equation}
   \begin{aligned}[b]
     V_{atom} &= \frac{4}{3}\pi r^3,\\
@@ -18,7 +18,7 @@ Before all this we need to perform a quick calculation to know the radius of the
   \includegraphics[width=95mm]{cells}
 \end{center}
 
-\captionof{figure}{a) SC, b) FCC and c) BC unit cells (image taken from \textit{http://chem-guide.blogspot.de/2010/04/simple-cubic-face-centered-and-body.html}).}\label{u:cells}\vspace{0.5cm}
+\captionof{figure}{a) SC, b) FCC and c) BCC unit cells (image taken from \textit{http://chem-guide.blogspot.de/2010/04/simple-cubic-face-centered-and-body.html}).}\label{u:cells}\vspace{0.5cm}
 
 Now that we know this we can start with the main calculations. First the atomic packing factor for the SC unit cell. For this cell we have atoms placed at the corners of a cube. They touch along the side of the cube as we can see in fig. \ref{u:cells}. Hence the length of the size of the cube is
 \begin{equation*}
@@ -60,11 +60,11 @@ There is just 1 atom inside the unit cell, so the atomic packing factor is going
 
 \question{BCC}
 \begin{solution}
-  Now it is time to o the same calculations for the BCC unit cell. In such cell we have atoms on every corner of the cube and an extra one placed at the center. So now the atoms touch each other alongside the diagonal. As a result, the diagonals of the cell have a length of
+  Now it is time to do the same calculations for the BCC unit cell. In such cell we have atoms on every corner of the cube and an extra one placed at the center. So now the atoms touch each other alongside the diagonal. As a result, the diagonals of the cell have a length of
   \begin{equation*}
     c = r + 2r + r = 4r.
   \end{equation*}
-  By basic trigonometry we know that the size of the diagonal of a cube is $c = \sqrt{3} a$, where $a$ is the size of each side. So the length of the diagonal in therms of the atomic radius is
+  By basic trigonometry we know that the size of the diagonal of a cube is $c = \sqrt{3} a$, where $a$ is the size of each side. So the length of the diagonal in terms of the atomic radius is
   \begin{equation}
     \begin{aligned}
       \sqrt{3} a &= 4 r,\\
@@ -75,7 +75,7 @@ There is just 1 atom inside the unit cell, so the atomic packing factor is going
   \begin{equation}
     V_{cell} = a^3 = \frac{64}{3\sqrt{3}}\left(\frac{3V_{atom}}{4\pi}\right) = \frac{16V_{atom}}{\sqrt{3}\pi}.
   \end{equation}
-  The number of atoms in a BCC cell is 2 ($8*1/8 + 1$), one in the center and 8 on the corners contributing $1/8$ each, knowing this the atomic packing factor is
+  The number of atoms in a BCC cell is 2, ($8*1/8 + 1$), one in the center and 8 on the corners contributing $1/8$ each, knowing this the atomic packing factor is
   \begin{equation}
     APF_{BCC} = \frac{2*V_{atom}}{V_{cell}} = \frac{2*V_{atom}}{\frac{16V_{atom}}{\sqrt{3}\pi}} = \hlgreen{\frac{\sqrt{3}\pi}{8}.}
   \end{equation}
@@ -90,7 +90,7 @@ The only remaining structure to calculate here is the HCP unit cell. In fig. \re
 
   \captionof{figure}{HPC structure, taken from \textit{https://www.e-education.psu.edu/matse81/node/2134}.}\label{hcp}\vspace{0.5cm}
 
-Let's consider the tetrahedron formed by the vertexes $ABCJ$. It's is easy, with our now aquired experience, to see that atoms are touching each other alongside $AB$, and also along $BJ$, both these sides have the same length $a = 2r$. So far we are not in troubles, so let's calculate the height of the tetrahedron $c/2$. So, we now that the triangle $ABC$ is equilateral, as $ABJ$, $BCJ$ and $CAJ$, therefore we have a tetrahedron with equilateral triangles as faces, so $J$ must lie right above the centroid of the triangle
+Let's consider the tetrahedron formed by the vertexes $ABCJ$. It's is easy, with our now acquired experience, to see that atoms are touching each other alongside $AB$, and also along $BJ$, both these sides have the same length $a = 2r$. So far we are not in troubles, so let's calculate the height of the tetrahedron $c/2$. We know that the triangle $ABC$ is equilateral, as $ABJ$, $BCJ$ and $CAJ$, therefore we have a tetrahedron with equilateral triangles as faces, so $J$ must lie right above the centroid of the triangle
 
 \begin{center}
   \includegraphics[width=55mm]{centroid}
@@ -119,7 +119,7 @@ then
   c = 2OJ = \frac{2\sqrt{2}a}{\sqrt{3}}.
 \end{equation}
 
-We are almost finish, we just need to know the apothem size ($CF$), this can be easily calculated with Pythagoras theorem and eq. \ref{bo}
+We almost finish, we just need to know the apothem size ($CF$), this can be easily calculated with Pythagoras theorem and eq. \ref{bo}
 \begin{equation}
   \begin{aligned}[b]
     CF^2 &= a^2 - \frac{a^2}{4} = \frac{3a^2}{4},\\
@@ -156,3 +156,10 @@ And finally we can calculate the atomic packing factor. In the hcp cell there ar
   If we plug the numbers in the computer (using the appropiate units), we will find that $N\approx2.0022590256465516$, which is very close to 2. And two is the number of atoms inside a BCC cell. Therefore \textbf{the crystal structure of the iron is BCC.}
 \end{solution}
 \end{questions}
+
+%
+% \begin{center}
+%   \includegraphics[width=55mm]{}
+% \end{center}
+%
+% \captionof{figure}{}\label{new}\vspace{0.5cm}
