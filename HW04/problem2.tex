@@ -1,0 +1,76 @@
+\begin{questions}
+\question{
+Reciprocal basis 2D}
+\begin{solution}
+  To tackle this problem it is useful to remember the following relation between the vectors of the direct and reciprocal basis
+  \begin{equation}
+    \vec{a}_i\cdot \vec{b}_j = 2\pi \delta_{ij}.
+  \end{equation}
+  Now if we take vectors in two dimensions, this yields the following matrix equation
+  \begin{equation}
+    \begin{pmatrix}
+      b_{1x} & b_{1y}\\
+      b_{2x} & b_{2y}
+    \end{pmatrix}
+    \begin{pmatrix}
+      a_{1x} & a_{2x}\\
+      a_{1y} & a_{2y}
+    \end{pmatrix}
+    = 2\pi \begin{pmatrix}
+      1 &0\\
+      0 & 1
+    \end{pmatrix}.
+  \end{equation}
+  If we solve the equation for $\mathcal{B}$ then we have
+  \begin{equation}
+    \begin{pmatrix}
+      b_{1x} & b_{1y}\\
+      b_{2x} & b_{2y}
+    \end{pmatrix}
+    = \frac{2\pi}{a_{1x}a_{2y} - a_{1y}a_{2x}} \begin{pmatrix}
+      a_{2y} & -a_{2x}\\
+      -a_{1y} & a_{1x}
+    \end{pmatrix}.
+  \end{equation}
+  The vectors given in the assignment for the direct basis give us the matrix $\mathcal{A}$
+  \begin{equation}
+    \mathcal{A}
+    =  \begin{pmatrix}
+      a & a/2\\
+      0 & a
+    \end{pmatrix},
+  \end{equation}
+  therefore
+  \begin{equation}
+    \begin{pmatrix}
+      b_{1x} & b_{1y}\\
+      b_{2x} & b_{2y}
+    \end{pmatrix}
+    = \frac{2\pi}{a^2} \begin{pmatrix}
+      a & -a/2\\
+      0 & a
+    \end{pmatrix} = \begin{pmatrix}
+      2\pi/a & -\pi/a\\
+      0 & 2\pi/a
+    \end{pmatrix}.
+  \end{equation}
+  Hence, the primitive vectors of the reciprocal lattice are
+  \begin{eqnarray}
+    \vec{b}_1 =\begin{pmatrix}
+      2\pi/a\\
+      0
+    \end{pmatrix}, \quad \vec{b}_2 = \begin{pmatrix}
+       -\pi/a\\
+       2\pi/a
+    \end{pmatrix}
+  \end{eqnarray}
+\end{solution}
+
+\end{questions}
+
+%
+% \begin{center}
+%   \includegraphics[width=55mm]{}
+% \end{center}
+%
+% \captionof{figure}{}\label{new}\vspace{0.5cm}
