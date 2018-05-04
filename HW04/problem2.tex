@@ -62,8 +62,21 @@ Reciprocal basis 2D}
     \end{pmatrix}, \quad \vec{b}_2 = \begin{pmatrix}
        -\pi/a\\
        2\pi/a
-    \end{pmatrix}
+    \end{pmatrix}.
   \end{eqnarray}
+  The respective drawings of the first and second Brillouin zones can be seen in fig. \ref{brill}
+  \begin{center}
+    \includegraphics[width=65mm]{brill}
+  \end{center}
+  \captionof{figure}{First (hexagon) and second (star) Brillouin zones.}\label{brill}\vspace{0.5cm}
+\end{solution}
+
+\question{Areas of the Brillouin zones}
+\begin{solution}
+  First we need to remember that all Brillouin zones have the same area. Then we only need to calculate the area of the first one. From fig. \ref{brill} we can see that the length apothem is half of the size of the vector $(2\pi/a, 0)$, that is $ap = \pi/a$. Now, by doing simple trigonometry and recalling that all the triangles inside the hexagon are equilateral, since it is a regular hexagon,   we will have that the length of each side of the hexagon is equal to $b=2ap/\sqrt{3}$. This result comes as a consequence of Pythagoras theorem. Finally, if we remember that the area of an hexagon is $6*b*ap/2$ we find
+  \begin{equation}
+    A = \frac{6b(ap)}{2} =  \frac{6(ap)^2}{\sqrt{3}} =  \frac{2(\sqrt{3})^2\pi^2}{a^2\sqrt{3}} = \hlgreen{\frac{2\sqrt{3}\pi^2}{a^2}.}
+  \end{equation}
 \end{solution}
 
 \end{questions}
