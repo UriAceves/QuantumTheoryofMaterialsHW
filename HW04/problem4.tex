@@ -1,0 +1,117 @@
+\begin{questions}
+\question{
+Fourier expansion
+}
+\begin{solution}
+  First we know that the eigenfunctions of a Hermitian operator are orthogonal. Second, we know that $i\nabla$ is a hermitian operator (basically because the momentum is hermitian). And we now that the eigenfunctions of such an operator are plane waves
+  \begin{equation}
+    i\nabla e^{-iG_n\cdot r} = e^{-iG_n\cdot r}.
+  \end{equation}
+  Therefore we know that
+  \begin{equation}
+    \braket{e^{-iG_n\cdot r}|e^{-iG_m\cdot r}} = V\delta_{nm}.
+  \end{equation}
+  Where V is the volume over which we are integrating (since the plane waves are not normalized already).
+  Hence, if we take this last equation with $m= 0$ we will find
+  \begin{equation}
+    \int_{\mathcal{V}} e^{-iG_n\cdot r}dr = V\delta_{n0},
+  \end{equation}
+  Solving the equation for delta will yield
+  \begin{equation}
+    \frac{1}{V}\int_{\mathcal{V}} e^{-iG_n\cdot r}dr =\delta_{n0}. _\blacksquare
+  \end{equation}
+  Once we have this proving the fourier expansion is easy.
+  \begin{equation}
+    \begin{aligned}[b]
+      F(r) &= \sum_n F_n\exp{(iG_n\cdot r)},\\
+      F(r)\exp{(-iG_m\cdot r)} &= \sum_n F_n\exp{(iG_n\cdot r)}\exp{(-iG_m\cdot r)},\\
+      \int_{\mathcal{V}}F(r)\exp{(-iG_m\cdot r)} &= \int_{\mathcal{V}}\sum_n  F_n\exp{(iG_n\cdot r)}\exp{(-iG_m\cdot r)},      \\
+      \int_{\mathcal{V}}F(r)\exp{(-iG_m\cdot r)} &= \sum_n  F_n\int_{\mathcal{V}}\exp{(iG_n\cdot r)}\exp{(-iG_m\cdot r)}, \\
+      \int_{\mathcal{V}}F(r)\exp{(-iG_m\cdot r)} &= \sum_n  F_nV\delta_{mn},\\
+      \int_{\mathcal{V}}F(r)\exp{(-iG_m\cdot r)} &=   F_mV.
+      \label{almost}
+    \end{aligned}
+  \end{equation}
+  Since $m$ is a mute index we can actually name it however we want, in this case $n$.   So from eq. \ref{almost} we conclude
+  \begin{equation}
+    F_m = \frac{1}{V}\int_{\mathcal{V}}F(r)\exp{(-iG_m\cdot r)}._\blacksquare
+  \end{equation}
+\end{solution}
+\question{Integral over Brillouin zone}
+\begin{solution}
+  Let's take different cases first when $n = -m$
+  \begin{equation}
+    \frac{V}{(2\pi)^3}\int_{BZ} \cancelto{1}{\exp{[ik\cdot(R_{-m} + R_m)]}}dk = \frac{V}{(2\pi)^3} \int_{BZ} dk,
+  \end{equation}
+  But we know that the volume of the Brillouin zone is $(2\pi)^3/V$, hence
+  \begin{equation}
+    \frac{V}{(2\pi)^3} \int_{BZ} dk = 1.
+  \end{equation}
+  If $n\neq-m$ we will have
+  \begin{equation}
+    \frac{V}{(2\pi)^3}\int_{BZ} \exp{[ik\cdot(R_{n} + R_m)]}dk = \frac{V}{(2\pi)^3} \left.\frac{\exp{[ik\cdot(R_{n} + R_m)]}}{ik\cdot(R_{n} + R_m)}\right|_{\partial BZ},
+  \end{equation}
+  If we center the Brillouin zone in the origin, it can help us. Because the $k$ vectors of the Brillouin zone are periodic in such zone. So they will have to have the same values the boundaries of the Brillouin zone $\partial BZ$ but at opposite sides, so they will actually cancel each other (since we centered the Brillouin zone on the origin). Other way to see this is that we are integrating a function over its period, so the result will be zero. Therefore we conclude
+  \begin{equation}
+    \frac{V}{(2\pi)^3}\int_{BZ} \exp{[ik\cdot(R_{n} + R_m)]}dk = 0.
+  \end{equation}
+  And finally we have
+  \begin{equation}
+    \frac{V}{(2\pi)^3}\int_{BZ} = \delta_{n,-m}
+  \end{equation}
+\end{solution}
+
+\question{Deltas 1}
+\begin{solution}
+  For this I will show how it's done for 1D and the extension will be easy to do. First we need to consider the lattice function
+  \begin{equation}
+    f(x) = \sum_{n=-\infty}^\infty \delta(x-na).
+  \end{equation}
+  This represents a function with period $a$, so we can also expand in fourier series the same function
+  \begin{equation}
+    f(x) = \sum_{h=-\infty}^\infty c_h \exp \left(i2\pi h\frac{x}{a}\right).
+  \end{equation}
+  We are interested on the coefficients $c_h$, so lets do that
+  \begin{equation}
+    \begin{aligned}
+c_h &= \frac{1}{|a|} \int_{-a/2}^{a/2}f(x)\exp\left(i2\pi h\frac{x}{a}\right)dx,\\
+&= \frac{1}{|a|} \int_{-a/2}^{a/2}\sum_{n=-\infty}^\infty \delta(x-na)\exp\left(i2\pi h\frac{x}{a}\right)dx,\\
+&= \frac{1}{|a|} \int_{-a/2}^{a/2} \delta(x)\exp\left(i2\pi h\frac{x}{a}\right)dx,\\
+\frac{1}{|a|}.
+    \end{aligned}
+  \end{equation}
+  Therefore
+  \begin{equation}
+    \sum_{n=-\infty}^\infty \delta(x-na) = \frac{1}{|a|}\sum_{h=-\infty}^\infty  \exp \left(i2\pi h\frac{x}{a}\right) = \frac{1}{|a|}\sum_{h=-\infty}^\infty  \exp \left(i k_x x\right).
+  \end{equation}
+  If we extend this procedure to 3D we will find
+  \begin{equation}
+    \sum_{n=-\infty}^\infty \delta(k-G_n)  = \frac{V}{(2\pi)^3}\sum_{n=-\infty}^\infty  \exp \left(i k\cdot r_n\right).
+  \end{equation}
+\end{solution}
+\question{Last one}
+\begin{solution}
+  Now lets consider the following lattice function
+  \begin{equation*}
+    \begin{aligned}
+      &\sum_{n=-\infty}^\infty \delta(r-R_n) = \\
+      &= FT^{-1} \left( \frac{1}{B^N}\frac{1}{V} \sum_{h=-\infty}^\infty \delta \left(r' - \frac{2\pi}{k}(h_1b_1+\cdots+ h_Nb_n) \right)\right),\\
+      &=\frac{1}{V} \int_{-\infty}^\infty \sum_{h=-\infty}^\infty \delta \left(r - \frac{2\pi}{k}(h_1b_1+\cdots+ h_Nb_n) \right)\exp(ikr'\cdot r)dr',\\
+      &=\frac{1}{V}  \sum_{h=-\infty}^\infty \exp[ i2\pi \left((h_1b_1+\cdots+ h_Nb_n)\cdot r \right],\\
+      %&= \frac{1}{V}  \sum_{h=-\infty}^\infty \exp[iG_n\cdot r]. _\blacksquare
+    \end{aligned}
+  \end{equation*}
+      \begin{equation}
+        \begin{aligned}
+          &= \frac{1}{V}  \sum_{h=-\infty}^\infty \exp[iG_n\cdot r]. _\blacksquare
+        \end{aligned}
+          \end{equation}
+\end{solution}
+\end{questions}
+
+%
+% \begin{center}
+%   \includegraphics[width=55mm]{}
+% \end{center}
+%
+% \captionof{figure}{}\label{new}\vspace{0.5cm}

@@ -1,0 +1,55 @@
+\begin{questions}
+\question{
+Reciprocal orthogonal vectors
+}
+\begin{solution}
+  A lattice is such that all points can be written as a linear combination of three primitive vectors
+  \begin{equation}
+    \vec{r} = n_1a_1 + n_2a_2 + n_3a_3, \quad n_1,n_2,n_3\in\mathbb{Z}.
+  \end{equation}
+  We can do the same for the reciprocal lattice now
+  \begin{equation}
+    \vec{G} = hb_1 + kb_2 + lb_3, \quad h,k,l\in\mathbb{Z}.
+    \label{reclat}
+  \end{equation}
+  We are going to prove now that the reciprocal lattice vector with components $(h,k,l)$ lies perpendicular to the lattice plane with Miller indexes $(hkl)$. To span the plane we can take the difference between the primitive vectors (naturally rescaling them with suitable coefficients), so a famili of lattice planes can be generated with linear combinations of the following vectors
+  \begin{equation}
+    \frac{\vec{a_1}}{h'} - \frac{\vec{a_2}}{k'},
+  \end{equation}
+  and
+  \begin{equation}
+    \frac{\vec{a_3}}{l'} - \frac{\vec{a_2}}{k'}.
+  \end{equation}
+  Their vector product must be perpendicular to such plane, so let's see what it yields
+  \begin{equation}
+    \left(\frac{\vec{a_1}}{h'} - \frac{\vec{a_2}}{k'}\right)\times \left(\frac{\vec{a_3}}{l'} - \frac{\vec{a_2}}{k'}\right) = - \frac{1}{h'k'}(\vec{a_1}\times \vec{a_2}) - \frac{1}{k'l'}(\vec{a_2}\times \vec{a_3}) - \frac{1}{h'l'}(\vec{a_3}\times \vec{a_1}),
+  \end{equation}
+  if we multiply this suspicious equation by $-2\pi h'k'l'/(\vec{a_1}\cdot(\vec{a_2}\times \vec{a_3}))$ we get
+  \begin{equation}
+    2\pi\left( h'\left(\frac{\vec{a_1}\times \vec{a_2}}{\vec{a_1}\cdot(\vec{a_2}\times \vec{a_3})}\right) + k'\left(\frac{\vec{a_2}\times \vec{a_3}}{\vec{a_1}\cdot(\vec{a_2}\times \vec{a_3})}\right) + l'\left(\frac{\vec{a_3}\times \vec{a_1}}{\vec{a_1}\cdot(\vec{a_2}\times \vec{a_3})}\right)\right),
+  \end{equation}
+  this vector however is parallel to the vector shown in eq. \ref{reclat}, by definition, and therefore such vector is also perpendicular to the lattice plane. We can do the same process for all latice planes, and therefore we have proven that we can find this vectors perpendicular for all of them. Naturally if we take this arguments in reverse we will find that given this vectors, we can find lattice planes perpendicular to them. The question now is, where do we place them? That's why we need the second part of this exercise.
+
+  Now let's calculate the distance from the origin to the lattice plane $(hkl)$, this distance is
+  \begin{equation}
+    \begin{aligned}[b]
+      d'_{hkl} &= \frac{a_1}{h'}\cos \angle(\vec{a_1}, \vec{G}_{hkl}),\\
+      &= \frac{a_1}{h'}\frac{\vec{a}_1\cdot \vec{G}_{hkl}}{a_1G_{hkl}},\\
+      &= \frac{2\pi}{G_{hkl}}\frac{h}{h'},\\
+      &= \frac{2\pi}{G_{hkl}}p.
+  \end{aligned}
+  \end{equation}
+  Therefore the shortest length of one of this vectors to a lattice plane is
+  \begin{equation}
+    \hlgreen{G_{hkl} =\frac{2\pi}{d_{hkl}}.}
+  \end{equation}
+  Where $d_{hkl} = d'_{hkl}/p$. Once again we can take the arguments backwards and prove that given the lattice vectors $\vec{G}$ we will find a family of lattice planes perpendicular to them and separated by a distance $d_{hkl}$. $_\blacksquare$
+\end{solution}
+\end{questions}
+
+%
+% \begin{center}
+%   \includegraphics[width=55mm]{}
+% \end{center}
+%
+% \captionof{figure}{}\label{new}\vspace{0.5cm}
