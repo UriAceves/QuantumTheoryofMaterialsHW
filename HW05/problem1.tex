@@ -1,0 +1,103 @@
+
+\begin{questions}
+\question{
+Volume of an n-ball and area of an n-sphere
+}
+\begin{solution}
+  To compute the volume of an n-ball ($\mathcal{B}$) we can begin by setting the integral
+  \begin{equation}
+    V_n(R) = \int_{\mathcal{B}} dx_1dx_2\ldots dx_n = \alpha_nR^n.
+    \label{vol:1}
+  \end{equation}
+  We know by dimensional analysis that the dimensions of the volume of the n-ball must be $R$, hence there must be a factor $R^n$ embedded in the final result, times some factor dependent of n.
+  The surface of an n-sphere will be denoted by $S_{n-1}(R)$. We can also obtain the volume of the n-ball, if we integrate very thin spherical shells of radius $r\in[0,R]$. This idea is represented by the following equation \begin{equation}
+    V_n(R) = \int_0^R S_{n-1}(r)dr.
+    \label{vol:2}
+  \end{equation}
+  If we integrate this equation and rember that on $r=0$ the sphere must have area $0$, we have
+  \begin{equation}
+    S_{n-1}(R = \frac{dV_n(R)}{dR} = n\alpha_nR^{n-1}, \text{ using eq. \ref{vol:1}.}
+    \label{surf:1}
+  \end{equation}
+  So, as we can see, our original problem is now reduced to find the functional form of $\alpha_n$. To gain insight let's look at what happens if we combine eqs. \ref{vol:1}-\ref{surf:1}.
+  \begin{equation}
+    \int_{\mathcal{B}} dx_1dx_2\ldots dx_n = \int_0^R S_{n-1}(r)dr = n\alpha_n\int_0^R r^{n-1} dr.
+    \label{vol:3}
+  \end{equation}
+  Now let's do two things. First, we need to realize that on the right hand side of eq. \ref{vol:3} there are two parts, one exclusively dependent on $n$ and another dependent on $n,r$ (the integral). Knowing this let's take our second step and express the volume element $dx_1dx_2\ldots dx_n$ in spherical coordinates. Therefore, it will look like this
+  \begin{equation}
+    dx_1dx_2\ldots dx_n = r^{n-1}drd\Omega_{n-1},
+  \end{equation}
+  where $d\Omega$ is the element of solid angle. From here we can conclude that
+  \begin{equation}
+    \int_{\Omega} d\Omega_{n-1} = n\alpha_n.
+    \label{om:alp}
+  \end{equation}
+
+  Here we need an auxiliary result. Let's calculate $\Gamma(1/2)$ from the definition
+  \begin{equation}
+    \begin{aligned}[b]
+      \Gamma \left(\frac{1}{2} \right) &= \int_0^\infty \exp(-t)t^{(1/2 - 1)}dt, \quad\textnormal{  changing $t = x^2$ }.\\
+      &= \int_0^\infty \exp(-x^2)x^{-1} 2xdx,\\
+      &= 2 \int_0^\infty \exp(-x^2)dx, \\
+      & =\int_{-\infty}^\infty \exp(-x^2)dx,\\
+      & = \sqrt{\pi}.
+    \end{aligned}
+  \end{equation}
+  Now let's play with this idea
+  \begin{equation}
+    \exp(-(x_1^2 +x_2^2 + \cdots + x_n^2)) = \exp{(-r^2)}.
+    \label{exp:radial}
+  \end{equation}
+  Which is just expressing the same function in two different coordinate systems. What would happen is we integrate such functions over all space?
+  \begin{equation}
+    \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \exp(-(x_1^2 +x_2^2 + \cdots + x_n^2)) dx_1dx_2\ldots dx_n = \int_{0}^\infty r^{n-1}dr \int_\Omega d\Omega_{n-1} \exp{(-r^2)}.
+  \end{equation}
+  With our previous knowledge from eq. \ref{om:alp} and integral calculus we can do this
+  \begin{equation}
+    \int_{-\infty}^\infty \exp{(-x_1^2)}dx_1\cdots \int_{-\infty}^\infty \exp{(-x_n^2)}dx_n = \int_{0}^\infty r^{n-1}dr \int_\Omega d\Omega_{n-1} \exp{(-r^2)}.
+  \end{equation}
+  Using eq. \ref{om:alp}
+  \begin{equation}
+    \int_{-\infty}^\infty \exp{(-x_1^2)}dx_1\cdots \int_{-\infty}^\infty \exp{(-x_n^2)}dx_n = n\alpha_n\int_{0}^\infty r^{n-1}dr \exp{(-r^2)}.
+  \end{equation}
+  On the left hand side we have $n$ times $\Gamma(1/2)$. But we already know their value, hence
+  \begin{equation}
+    \int_{-\infty}^\infty \exp{(-x_1^2)}dx_1\cdots \int_{-\infty}^\infty \exp{(-x_n^2)}dx_n = (\sqrt{\pi})^n.
+  \end{equation}
+  And from the definition of $\Gamma$ we know
+  \begin{equation}
+    \int_0^\infty r^{n-1}\exp{(-r^2)} dr = \frac{1}{2} \Gamma \left(\frac{n}{2}\right).
+  \end{equation}
+  And as a consequence,
+  \begin{equation}
+    \begin{aligned}[b]
+      \pi^{n/2} &= \alpha_n \frac{n}{2} \Gamma \left(\frac{n}{2}\right),\\
+      & = \alpha_n \Gamma \left(\frac{n}{2} + 1 \right).
+    \end{aligned}
+  \end{equation}
+  Hence
+  \begin{equation}
+    \alpha_n = \frac{\pi^{n/2}}{\Gamma \left(\frac{n}{2} + 1 \right)}.
+  \end{equation}
+  Now, substituting this on eqs. \ref{vol:1} and \ref{surf:1} we have
+
+  \begin{equation}
+    \hlgreen{V_n(R) = \frac{\pi^{n/2}R^n}{\Gamma \left(\frac{n}{2} + 1 \right)}.}
+  \end{equation}
+  \begin{equation}
+    S_{n-1}(R) = \frac{n\pi^{n/2}R^{n-1}}{\Gamma \left(\frac{n}{2} + 1 \right)}.
+  \end{equation}
+  Using the property $\Gamma(s+1) = s\Gamma(s)$ we can modify this last equation to get finally
+  \begin{equation}
+    \hlgreen{S_{n-1}(R) = \frac{2\pi^{n/2}R^{n-1}}{\Gamma \left(\frac{n}{2}\right)}.}
+  \end{equation}
+ \end{solution}
+\end{questions}
+
+%
+% \begin{center}
+%   \includegraphics[width=55mm]{}
+% \end{center}
+%
+% \captionof{figure}{}\label{new}\vspace{0.5cm}
