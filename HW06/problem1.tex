@@ -4,13 +4,13 @@
 Analytical solution of the model
 }
 \begin{solution}
-  In this case we need to solve the Schrödinger equation
+  For this problem we need to solve the Schrödinger equation
 
   \begin{equation}
     \left(-\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + V(x)\right)\phi_{nk}(x) = E_{nk}\phi_{nk}(x).
   \end{equation}
 
-  If $V(x)$ is a periodic potential we know we don't have to solve the problem for all space, since Bloch theorem tells us that the solutions will be the product of plane waves and a periodic function. Assuming that $V_1<E<V_2$ we will have
+  If $V(x)$ is a periodic potential we don't have to solve the problem for all space, since Bloch theorem tells us that the solutions will be the product of plane waves and a periodic function with the same periodicity as the potential. Assuming that $V_1<E<V_2$ we will have (once solved it is easy to extend this result)
 
   \begin{equation}
     \phi_{nk}(x) = \begin{cases}
@@ -28,7 +28,7 @@ Analytical solution of the model
     \phi_{nk}(b<x<b+a) = \phi_{nk}(-a<x<0)e^{ik(b+a)}.
     \label{bloch}
   \end{equation}
-  Moreover, we know that the solution must be continuous, this imposes boundary conditions at $x=0$, and $x=b$.
+  Moreover, we know that the solution must be continuous. This imposes boundary conditions at $x=0$, and $x=b$.
   When $x=0$ both solutions will look like this
   \begin{eqnarray}
     A+B = C+D\\
@@ -66,10 +66,10 @@ Analytical solution of the model
    \includegraphics[width=85mm]{sample}
  \end{center}
 
- \captionof{figure}{Plot of the qualitative behavior of eq. \ref{alm}.}\label{sample}\vspace{0.5cm}
+ \captionof{figure}{Plot of the qualitative behavior of eq. \ref{eq:num}.}\label{sample}\vspace{0.5cm}
 
 
-If we solve eq. \ref{eq:num} numerically we will find the band structure displayed in fig. \ref{num}
+If we find the roots of eq. \ref{eq:num} numerically we will find the band structure displayed in fig. \ref{num}
 
  \begin{center}
    \includegraphics[width=99mm]{numsol}
@@ -87,9 +87,9 @@ Finally we can have an idea of the density of states just by counting and displa
 
 Here we can see that we have more states close to the gaps that in the middle section of the bands.\\
 
- But I'm missing the Fermi energy, the reason is the following. In the model of Kronig-Penney there is no statement concerning the position of the Fermi level, for more information read \url{https://www.springer.com/cda/content/document/cda_downloaddocument/9783319197630-c2.pdf?SGWID=0-0-45-1514427-p177405762}
+ But I'm missing the Fermi energy in both plots, the reason is the following. In the model of Kronig-Penney there is no statement concerning the position of the Fermi level, for more information read \url{https://www.springer.com/cda/content/document/cda_downloaddocument/9783319197630-c2.pdf?SGWID=0-0-45-1514427-p177405762}
 
- I do not add the codes because it does not add anything new to the analysis, but they can be found here \url{https://github.com/UriAceves/QuantumTheoryofMaterialsHW/tree/master/HW06}
+ I do not add the codes because adding them does not add anything new to the discussion, but they can be found here \url{https://github.com/UriAceves/QuantumTheoryofMaterialsHW/tree/master/HW06}
 
  \end{solution}
 

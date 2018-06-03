@@ -25,7 +25,7 @@ Numerical solution
       &= \frac{A}{a}.
     \end{aligned}
   \end{equation}
-To go from the second to the third line we used the fact that $s\in \mathbb{Z}$ and $\delta (x-sa)$ is non-zero just when $s=0$, for $x\in [-a/2,a/2].$
+To go from the second to the third line we used the fact that $s\in \mathbb{Z}$ and $\delta (x-sa)$ is non-zero just when $s=0$, for $x\in [-a/2,a/2].$ In fig. \ref{fig:four} we can see the reconstruction of the initial delta potential using the Fourier components $U_G$. AS we can see the more frequencies we add the more accurate our reconstruction is.
 
 \begin{center}
   \includegraphics[width=65mm]{uk2}
@@ -36,7 +36,7 @@ To go from the second to the third line we used the fact that $s\in \mathbb{Z}$ 
 
 \captionof{figure}{U(k) using 2, 4, 6, and 100 frequencies.}\label{fig:four}\vspace{0.5cm}
 
-The wave equation of an electron in a crystal is (See Kittel)
+The final step is to actually know what is the system of equations we are going to solve numerically, for this matter we deal with the following calculations. The wave equation of an electron in a crystal is (See Kittel)
 
 \begin{equation}
   \left(\frac{1}{2m}p^2 + \sum_G U_Ge^{iGx}\right) \psi(x) = \epsilon \psi(x).
