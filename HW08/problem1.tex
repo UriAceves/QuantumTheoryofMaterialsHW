@@ -1,0 +1,89 @@
+
+\begin{questions}
+\question{
+Variational principle
+}
+\begin{solution}
+  We will consider a Hamiltonian of the type
+  \begin{equation}
+    \hat{H_e} = -\frac{1}{2} \sum_i^{N_e} \nabla^2_i - \sum_i^{N_e}\sum_{I}^{N_e} \frac{Z_I}{ \vec{r}_i - \vec{R}_I } + \frac{1}{2}\sum_i^{N_e}\sum_{i\neq j}^{N_e} \frac{1}{|\vec{r}_i -\vec{r}_j|},
+  \end{equation}
+  if we separate the single particle and the pair functions we will obtain
+  \begin{equation}
+    \hat{H_e} =  \sum_i^{N_e} \hat{h}_1(\vec{x}_i) + \frac{1}{2}\sum_{i\neq j}^{N_e} \hat{h}_2(\vec{x}_i,\vec{x}_j).
+  \end{equation}
+  We know that
+  \begin{equation}
+    \braket{\Phi|\hat{H_e}|\Phi} = \sum_i^N \braket{\phi_i|\hat{h_1}|\phi_i} + \frac{1}{2} \sum_{i,j}^N \left[ \braket{\phi_i \phi_j|\hat{h_2}|\phi_i \phi_j} -  \braket{\phi_j \phi_i|\hat{h_2}|\phi_i \phi_j}\right],
+  \end{equation}
+  and we want to solve the following problem
+  \begin{equation}
+    \phi_k \rightarrow \phi_k + \delta \phi_k \quad \Rightarrow \quad \delta \braket{\Phi|\hat{H_e}|\Phi}.
+  \end{equation}
+  We demand the langrange multipliers that the set of orbitals $\phi_k$ remain orthogonal throughout the minimization. This is fulfilled if
+  \begin{equation}
+    \delta F = \delta \left[ \braket{\Phi|\hat{H_e}|\Phi} - \sum_{i,j} \lambda_{ij} ( \braket{\phi_i|\phi_j} - \delta_{ij})  \right] = 0.
+  \end{equation}
+  Let us see first then, how the single-body term changes
+  \begin{equation}
+    \delta \braket{\Phi|\sum_i^{N_e} \hat{h}_1(\vec{x}_i)|\Phi} = \braket{\delta \phi_k|\hat{h_1}|\phi_k} + \braket{\phi_k|\hat{h_1}|\delta \phi_k} = \braket{\delta \phi_k|\hat{h_1}|\phi_k} + \braket{\delta \phi_k|\hat{h_1}|\phi_k}^*.
+  \end{equation}
+  Now let's proceed with the second term
+  \begin{equation}
+    \begin{aligned}[b]
+      \delta \braket{\Phi|\frac{1}{2}\sum_{i\neq j}^{N_e} \hat{h}_2(\vec{x}_i,\vec{x}_j)|\Phi} &= \delta \frac{1}{2} \sum_{i,j} \left\{ \braket{\phi_i \phi_j|\hat{h_2}|\phi_i \phi_j} -  \braket{\phi_j \phi_i|\hat{h_2}|\phi_i \phi_j}  \right\} \\
+      &= \frac{1}{2} \sum_i \big\{ \braket{\phi_i \delta\phi_k | \hat{h_2}|\phi_i \phi_k} + \braket{\phi_i \phi_k | \hat{h_2}|\phi_i \delta\phi_k} \\
+      & - \braket{\delta\phi_k \phi_i | \hat{h_2}|\phi_i \phi_k} - \braket{\phi_k \phi_i | \hat{h_2}|\phi_i\delta \phi_k}\big\}\\
+      &+ \frac{1}{2} \sum_j \big\{ \braket{\delta\phi_k \phi_j | \hat{h_2}|\phi_k \phi_j} + \braket{\phi_k \phi_j | \hat{h_2}|\delta\phi_k \phi_j} \\
+      & - \braket{\phi_j \delta\phi_k | \hat{h_2}|\phi_k \phi_j} - \braket{\phi_j \phi_k | \hat{h_2}|\delta\phi_k \phi_j}\big\}.
+    \end{aligned}
+  \end{equation}
+  To simplify we can use the identity
+  \begin{equation}
+    \braket{\phi_1 \phi_2 |\hat{A}|\phi_3 \phi_4} = \braket{\phi_2 \phi_3 |\hat{A}|\phi_4 \phi_3}.
+  \end{equation}
+  And then, the equation simplifies to
+  \begin{equation}
+    \begin{aligned}[b]
+      \delta \braket{\Phi|\frac{1}{2}\sum_{i\neq j}^{N_e} \hat{h}_2(\vec{x}_i,\vec{x}_j)|\Phi} &= \sum_i\big\{ \braket{\phi_i \delta\phi_k | \hat{h_2}|\phi_i \phi_k} + \braket{\phi_i \delta \phi_k | \hat{h_2}|\phi_i \phi_k}^* \\
+      & - \braket{\delta\phi_k \phi_i | \hat{h_2}|\phi_i \phi_k} - \braket{\delta \phi_k \phi_i | \hat{h_2}|\phi_i \phi_k}^* \big\}.
+    \end{aligned}
+  \end{equation}
+  Writing everything together we have
+  \begin{equation}
+    \begin{aligned}[b]
+      \delta F &= \braket{\delta \phi_k|\hat{h_1}|\phi_k} + \braket{\delta \phi_k|\hat{h_1}|\phi_k}^* + \sum_i\big\{ \braket{\phi_i \delta\phi_k | \hat{h_2}|\phi_i \phi_k} + \braket{\phi_i \delta \phi_k | \hat{h_2}|\phi_i \phi_k}^*  - \braket{\delta\phi_k \phi_i | \hat{h_2}|\phi_i \phi_k} \\
+      & - \braket{\delta \phi_k \phi_i | \hat{h_2}|\phi_i \phi_k}^* \big\} - \sum_i [\lambda_{ik} \braket{\delta \phi_k|\phi_i}^* + \lambda_{ki}\braket{\delta \phi_k|\phi_i}].
+    \end{aligned}
+  \end{equation}
+  We are going to do the variation with respect to $\phi^*$. In terms of integrals the terms for the two-body potential look like
+  \begin{equation}
+    \braket{\delta\phi_k \phi_i | \hat{h}_2|\phi_i \phi_k} = \int \int \delta \phi_k^* \phi_i^* \hat{h}_2(\vec{x}_1, \vec{x}_2)\phi_i \phi_k d\vec{x}_1 d\vec{x}_2.
+  \end{equation}
+  As we know, if we calculate the functional derivative $\delta F / \delta \phi_k^*$ this has as effect getting rid of the term $\delta\phi_k$ in the bra and therefore the integral over its argument. This leads us to
+  \begin{equation}
+    \hat{h}_1 \phi_k(\vec{x}_i) + \sum_i \left\{ \int \phi_i^*(\vec{x}_2) \hat{h}_2 (\phi_i(\vec{x}_2)\phi_k(\vec{x}_1)) d\vec{x}_2 - \int \phi_i^*(\vec{x}_2) \hat{h}_2 (\phi_i(\vec{x}_1)\phi_k(\vec{x}_2)) d\vec{x}_2\right\} = \sum_i \lambda_{ki} \phi_i(\vec{x}_1).
+  \end{equation}
+  This last equation has the form we are looking for, so we can define an operator $\hat{F}$ on the left hand side such that
+  \begin{equation}
+    \hat{F}\phi_k = \sum_i \lambda{ki} \phi_i.
+  \end{equation}
+  There are several solutions to this equation, we can constrain ourselves to look fo the ones that satisfy
+  \begin{equation}
+    \lambda_{ki} = \delta_{ki}\epsilon_k,
+  \end{equation}
+  by doing this our equation finally changes to
+  \begin{equation}
+    \hat{F}\phi_k = \epsilon_k \phi_k.
+  \end{equation}
+  These last equations are the Hartree Fock equations.
+ \end{solution}
+
+\end{questions}
+
+%
+% \begin{center}
+%   \includegraphics[width=55mm]{}
+% \end{center}
+%
+% \captionof{figure}{}\label{new}\vspace{0.5cm}
